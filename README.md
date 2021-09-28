@@ -12,8 +12,8 @@ También será útil para aquellas personas que llevan varios años trabajando e
 
 
 ## Historias de usuario
-* [HUagricultor](https://github.com/joaquingv12/Proyecto-IV/issues/3)
-* [HUempresario](https://github.com/joaquingv12/Proyecto-IV/issues/4)
+* [HU1](https://github.com/joaquingv12/Proyecto-IV/issues/3)
+* [HU2](https://github.com/joaquingv12/Proyecto-IV/issues/4)
 
 ### Perfil de los usuarios
 
