@@ -14,6 +14,7 @@ También será útil para aquellas personas que llevan varios años trabajando e
 ## Historias de usuario
 * [HU1](https://github.com/joaquingv12/Proyecto-IV/issues/3)
 * [HU2](https://github.com/joaquingv12/Proyecto-IV/issues/4)
+* [HU3](https://github.com/joaquingv12/Proyecto-IV/issues/6)
 
 ### Perfil de los usuarios
 
