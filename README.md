@@ -1,15 +1,6 @@
 # Proyecto-IV
 ## Idea del proyecto
-La idea de este proyecto es crear un sistema de ayuda a los agricultores, aportándoles ayuda sobre sus cosechas, aviśandoles sobre periodos de cosecha, polinización, etc. Además, podrán calcular sus ganancias obtenidas así como predecirlas según lo obtenido en años anteriores.
-
-### ¿Qué problemas resuelve?
-Hoy en día hay muchas personas que heredan terrenos familiares en los que ellos no han trabajado nunca ya sea porque tienen otro trabajo o se han mudado a otra ciudad y quieren encargarse ahora de esos terrenos y necesitan saber lo siguiente:
-* Cuándo polinizar los frutos
-* La mejor época para recolectarlos
-* Beneficios que le aportará
-
-También será útil para aquellas personas que llevan varios años trabajando en la agricultura pero no obtienen los beneficios que esperaban, ¿será que no estoy recolectando los frutos en la fecha óptima de recolección?, ¿seré el único con este fruto en esta zona y debería cambiarlo? 
-
+La idea del proyecto es crear un sistema que ayude a los usuarios a tener un control sobre el consumo de la electricidad. El sistema mostrará para cada día de la semana cuándo es más probable que suba el precio o que descienda. Esto lo predecidirá teniendo en cuenta el tiempo metereológico que hará en los próximos días (dado que, por ejemplo, el viento ayuda a producir más energía eólica y abarata el precio) , la estación del año, el día de la semana o teniendo en cuenta las horas puntas del consumo eléctrico. Esto ayudará a los usuarios a reducir el precio de su factura de la luz ya que podrán organizar las tareas que requieran mayor consumo eléctrico los días que se han predecido como más baratos.
 
 ## Historias de usuario
 * [HU1](https://github.com/joaquingv12/Proyecto-IV/issues/3)
