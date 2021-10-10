@@ -1,0 +1,5 @@
+lenguaje: python 3.8
+entidad: src/Funciones.py
+entidad: src/Electricidad.py
+
+Se ha usado python ya que posee una sintaxis simple y es un lenguaje muy portable y multiplataforma.
