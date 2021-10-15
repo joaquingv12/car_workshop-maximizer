@@ -1,0 +1,3 @@
+automatizar:
+  - fichero: task.py
+  - orden: invoke install
