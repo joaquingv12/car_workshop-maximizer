@@ -1,5 +1,5 @@
-lenguaje:
-entidad:
+lenguaje: Python
+entidad: objetivo2
 automatizar:
   - fichero: tasks.py
   - orden: invoke install
