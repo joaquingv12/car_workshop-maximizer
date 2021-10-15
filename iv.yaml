@@ -1,5 +1,5 @@
 lenguaje: Python
-entidad: objetivo2
+entidad: Electricidad.py
 automatizar:
   - fichero: tasks.py
   - orden: invoke install
