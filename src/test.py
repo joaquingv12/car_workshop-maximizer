@@ -5,7 +5,6 @@ from Calendario import *
 
 locale.setlocale(locale.LC_ALL,'es_ES.utf8')
 
-
 print("¿De que dia quieres comprobar la electricidad?(xx)")
 dia = int(input())
 print("¿De que mes quieres comprobar la electricidad?(xx)")
@@ -31,4 +30,3 @@ try:
     print('El dia más barato de esta semana es el', calendario.obtener_dia_de_la_semana_mas_barato())
 except:
     print('Escribe una fecha valida')
-
