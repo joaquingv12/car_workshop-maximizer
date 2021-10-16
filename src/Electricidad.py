@@ -21,3 +21,4 @@ class Electricidad:
         return self.dia_semana_actual
     def subida_precio(self):
         return self.subida_precio
+    
