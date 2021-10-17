@@ -1,6 +1,14 @@
 from datetime import *
 
 class Calendario:
+    '''
+    Atributos
+    ----------
+    precio_electricidad : float
+        Precio de la electricidad
+    fecha : Date
+        Fecha en la que la electricidad tiene ese precio (precio_electricidad)
+    '''
     def __init__(self,precio_electricidad,fecha):
         self.precio_electricidad = precio_electricidad
         self.fecha = fecha
