@@ -30,5 +30,3 @@ class Calendario:
 
     def obtener_estacion():
         ''' Conocer la estación del año ya que puede afectar al precio'''
-        
-    
