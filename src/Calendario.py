@@ -25,12 +25,6 @@ class Calendario:
     def obtener_dia_de_la_semana_mas_barato():
         ''' Conocer cual es el dia más barato de la semana '''
 
-    def obtener_precio_medio_mes():
-        ''' Conocer el precio medio del mes '''
-
-    def obtener_precio_medio_semana():
-        ''' Conocer el precio medio de la semana '''
-
     def obtener_viento():
         ''' Conocer el viento que hace ese dia ya que puede afectar al precio'''
 
