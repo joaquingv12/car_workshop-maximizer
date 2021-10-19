@@ -5,7 +5,7 @@ def install(ctx):
 	Instalación de las clases.
 	"""
 	installdeps(ctx)
-	print("No implementado")
+	run("python src/*.py")
 
 @task
 def installdeps(ctx):  
