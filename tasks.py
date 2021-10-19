@@ -21,9 +21,9 @@ def test(ctx):
 	"""
 	print("No implementado")
 
-@task(help={"fichero":"fichero al que comprobar la sintaxis"})
-def check(ctx,fichero):
+@task(help={"f":"fichero al que comprobar la sintaxis"})
+def check(ctx,f):
 	"""
 	Comprueba que la sintaxis es correcta.
 	"""
-	run(f"python {fichero}")
+	run(f"python src/{f}.py")

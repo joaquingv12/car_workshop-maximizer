@@ -1,5 +1,5 @@
-lenguaje: Python
-entidad: Electricidad.py
+lenguaje: python 3.8
+entidad: src/GestionReparaciones.py
 automatizar:
-  - fichero: tasks.py
-  - orden: invoke install
+  fichero: tasks.py
+  orden: invoke install
