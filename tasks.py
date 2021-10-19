@@ -26,4 +26,8 @@ def check(ctx,f):
 	"""
 	Comprueba que la sintaxis es correcta.
 	"""
-	run(f"python src/{f}.py")
+	try:
+		run(f"python src/{f}.py")
+		print("Sintaxis correcta")
+	except:
+		print("Sintaxis incorrecta")
