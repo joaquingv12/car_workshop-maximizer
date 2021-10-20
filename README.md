@@ -17,7 +17,7 @@ El gestor de tareas que voy a utilizar para el proyecto es **Invoke**, que es un
 * `invoke install`
 * `invoke installdeps`
 * `invoke test`
-* `invoke check --f <nombre_clase>`
+* `invoke check`
 
 Para ver todas las tareas disponibles: `invoke --list`
 ![](/docs/imagenes/invoke_list.png)
@@ -27,7 +27,7 @@ Para ver todas las tareas disponibles: `invoke --list`
 Clase encargada de gestionar los vehículos averíados del taller para cada día en los puesto de reparación. Almacenará los vehículos que se tienen que reparar además de los puestos de reparación que tiene disponibles el taller. Su uso dentro del servicio se basará en que realizará una distribución de los vehículos según el tiempo necesario para arreglar sus averías en los distintos puestos de trabajo para que en su global el taller realice el mayor número de reparaciones posibles en el menor tiempo posible.
 
 Para instalarla y comprobar la sintaxis se hará uso de la orden check :
-`invoke install check --f GestionReparaciones`
+`invoke install check `
 
 ***
 ## Documentación adicional

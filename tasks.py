@@ -21,13 +21,13 @@ def test(ctx):
 	"""
 	print("No implementado")
 
-@task(help={"f":"fichero al que comprobar la sintaxis"})
-def check(ctx,f):
+@task
+def check(ctx):
 	"""
 	Comprueba que la sintaxis es correcta.
 	"""
 	try:
-		run(f"python src/{f}.py")
+		run("pyflakes src/*.py")
 		print("Sintaxis correcta")
 	except:
 		print("Sintaxis incorrecta")
