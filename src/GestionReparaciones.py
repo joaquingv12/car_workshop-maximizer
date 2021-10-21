@@ -8,6 +8,7 @@ class GestionReparaciones:
         Número de puestos de reparación que hay en el taller
     '''
     def __init__(self, listado_vehiculos, puestos_de_reparacion):
+        ''' Inicializa los atributos de la clase '''
         self.listado_vehiculos = listado_vehiculos
         self.puestos_de_reparacion = puestos_de_reparacion
     

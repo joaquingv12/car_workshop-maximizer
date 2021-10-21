@@ -27,6 +27,7 @@ class Vehiculo:
         Tiempo estimado para la reparación del vehículo
     '''
     def __init__(self, matricula,  tipo_averia):
+        ''' Inicializa los atributos de la clase '''
         self.matricula = matricula
         self.tipo_averia = tipo_averia
         self.fecha_de_llegada = datetime.today()
@@ -43,6 +44,6 @@ class Vehiculo:
     def obtener_fecha_de_salida(self):
         ''' Devuelve la fecha de salida del vehículo '''
         return self.fecha_de_salida
-    def fecha_de_sallida(self,fecha_de_salida):
+    def fecha_de_salida(self,fecha_de_salida):
         ''' Añade la fecha de salida del vehículo '''
         self.fecha_de_salida = fecha_de_salida
