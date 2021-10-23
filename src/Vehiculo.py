@@ -1,4 +1,15 @@
 from datetime import *
+import enum
+
+
+class TipoAveria(enum.Enum):
+    '''
+    Enumerado
+    ----------
+    '''
+    GOLPE = 1
+    RUEDA_PINCHADA = 2
+    
 
 class Vehiculo:
     '''
@@ -6,7 +17,7 @@ class Vehiculo:
     ----------
     matricula : float
         Matrícula del vehículo
-    tipo_averia : String
+    tipo_averia : TipoAveria
         Tipo de averia que tiene el vehiculo
     fecha_de_llegada : Date
         Fecha en la que el vehículo llega al taller
