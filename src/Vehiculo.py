@@ -51,5 +51,8 @@ class Vehiculo:
         ''' Añade la fecha de salida del vehículo '''
         self.fecha_de_salida = fecha_de_salida
     def obtener__reparado(self):
-        ''' Añade la fecha de salida del vehículo '''
+        ''' Devuelve si el vehículo está reparado o no '''
         return self.reparado
+    def reparado(self,reparado):
+        ''' Cambia el estado de reparación del vehículo '''
+        self.reparado = reparado
