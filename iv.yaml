@@ -1,3 +1,5 @@
 lenguaje: python 3.8
 entidad: src/Reparaciones.py
-
+automatizar:
+  fichero: tasks.py
+  orden: invoke install

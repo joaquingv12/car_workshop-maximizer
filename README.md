@@ -12,5 +12,24 @@ La idea de este proyecto es crear un sistema que ayude a los talleres de vehícu
 
 * [Perfil usuarios](docs/perfil_usuarios.md)
 
+## Gestor de tareas
+El gestor de tareas que voy a utilizar para el proyecto es **Invoke**, que es un gestor de tareas para Python. Se encuentra en el archivo [tasks](tasks.py), éste contiene las tareas básicas del proyecto, entre ellas:
+* `invoke install`
+* `invoke installdeps`
+* `invoke test`
+* `invoke check`
+
+Para ver todas las tareas disponibles: `invoke --list`
+![](/docs/imagenes/invoke_list.png)
+***
+## Clase GestionReparaciones
+
+Clase encargada de gestionar los vehículos averíados del taller para cada día en los puesto de reparación. Almacenará los vehículos que se tienen que reparar además de los puestos de reparación que tiene disponibles el taller. Su uso dentro del servicio se basará en que realizará una distribución de los vehículos según el tiempo necesario para arreglar sus averías en los distintos puestos de trabajo para que en su global el taller realice el mayor número de reparaciones posibles en el menor tiempo posible.
+
+Para instalarla y comprobar la sintaxis se hará uso de la orden check :
+`invoke install check `
+
+***
 ## Documentación adicional
 * [Configuración de git](docs/configurar_git.md)
+  
