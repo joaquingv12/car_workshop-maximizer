@@ -3,3 +3,4 @@ entidad: src/Reparaciones.py
 automatizar:
   fichero: tasks.py
   orden: invoke install
+test: test/test_vehiculos.py
