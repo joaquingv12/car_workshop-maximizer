@@ -29,6 +29,11 @@ class Reparaciones:
         self.puestos_de_reparacion = puestos_de_reparacion
         self.lista_distribucion = [[] for i in range(puestos_de_reparacion)]
     
+    def añadir_nuevo_vehiculo(self,vehiculo):
+        ''' Añade un vehículo más a la lista de vehículos para reparar ese día'''
+        if type(vehiculo) == Vehiculo:
+            self.listado_vehiculos.append(vehiculo)
+            self.distribuir_vehiculos
 
     def distribuir_vehiculos():
         ''' Distribuye los vehiculos en los puestos de reparación '''
