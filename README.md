@@ -45,6 +45,14 @@ Clase encargada de gestionar los vehículos averíados del taller para cada día
 Para instalarla y comprobar la sintaxis se hará uso de la orden check :
 `invoke install check `
 
+***
+
+## Marco de tests
+Para llevar a cabo la realización de los tests, he elegido el marco de test __Pytest__. A diferencia de unittest, que para cada archivo de test hay que crear una clase que herede de TestCase, en Pytest no es necesario crear ninguna clase. En cuanto a la __biblioteca de aserciones__ para comprobar que un resultado es el esperado simplemente hay que usar la palabra clave `assert`, mientras que en otros marcos de test hay que especificar el tipo de aserción, por ejemplo, `assertTrue` para comprobar que una sentencia es evaluada como True. 
+
+Además, __Pytest__ permite el uso de *fixtures*, estos son funciones que permiten crear objetos antes de ejecutar cada función de los test cuando se pasa como parámetro un objeto con el mismo nombre que el de la función *fixture*. De esta forma, si en una función del test modificamos el objeto creado en la función fixture, no hay que preocuparse en los demás test, ya que el objeto se vuelve a configurar antes de cada función test.
+
+Para ejecutar los tests se puede usar el comando `pytest` o directamente con el task runner `invoke test`. Los tests creados se encuentran en [esta carpeta](test).
 
 ***
 ## Documentación adicional
