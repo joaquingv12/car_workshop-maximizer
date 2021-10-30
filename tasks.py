@@ -19,7 +19,7 @@ def test(ctx):
 	"""
 	Comprueba que el código funciona correctamente.
 	"""
-	print("No implementado")
+	run("pytest")
 
 @task
 def check(ctx):
