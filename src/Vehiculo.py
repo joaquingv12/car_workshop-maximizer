@@ -5,6 +5,7 @@ class TipoAveria(enum.Enum):
     '''
     Enumerado
     ----------
+    Permite clasificar los tipos de averías que tiene cada vehículo cuando llega al taller. 
     '''
     GOLPE = 1
     RUEDA_PINCHADA = 2
