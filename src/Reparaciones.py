@@ -2,7 +2,8 @@ from src.Vehiculo import *
 
 class Reparaciones:
     '''
-    Clase que gestiona las reparaciones de los vehículos del taller para cada día.
+    Clase que gestiona las reparaciones de los vehículos del taller para cada día. 
+    Cada objeto de esta clase pertenecerá a un listado para cada día que tendrá la clase Taller. 
 
     Atributos
     ----------
@@ -20,7 +21,7 @@ class Reparaciones:
         #Validar los datos introducidos
         for v in listado_vehiculos:
             if type(v) != Vehiculo:
-                raise TypeError("El listado tiene que ser de objetos vehículos")
+                listado_vehiculos.remove(v) #No añadir los vehículos que no son del tipo correcto
         
         if puestos_de_reparacion < 0:
             raise ValueError("El número de puestos de reparación no puede ser negativo")
