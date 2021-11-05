@@ -12,6 +12,11 @@ def test_tiene_fecha_de_llegada_correcta_al_crearlo(vehiculo):
 def test_vehiculo_averiado_al_crearlo(vehiculo):
     assert vehiculo.reparado == False
 
+def test_añade_nueva_averia(vehiculo):
+    vehiculo.añadir_nueva_averia(TipoAveria.LUNA_ROTA)
+    assert len(vehiculo.listado_averias) == 2
+    assert vehiculo.listado_averias[1] == TipoAveria.LUNA_ROTA
+
 def test_cambiar_a_estado_reparado(vehiculo):
     vehiculo.cambiar_estado_reparacion(True)
     assert vehiculo.reparado == True
