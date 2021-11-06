@@ -34,7 +34,7 @@ class Reparaciones:
         ''' Añade un vehículo más a la lista de vehículos para reparar el día de hoy.'''
         if type(vehiculo) == Vehiculo:
             self.listado_vehiculos.append(vehiculo)
-            self.distribuir_vehiculos()
+            self.distribuir_vehiculos
 
     def distribuir_vehiculos():
         ''' Distribuye los vehiculos en los puestos de reparación '''
