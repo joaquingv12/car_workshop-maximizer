@@ -3,6 +3,7 @@ on:
     branches:
     - main
     - release/*
+    
 name: deploy
 jobs:
   build-and-push:
