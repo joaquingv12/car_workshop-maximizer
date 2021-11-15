@@ -35,8 +35,18 @@ El gestor de tareas que voy a utilizar para el proyecto es **Invoke**, que es un
 * `invoke test`
 * `invoke check`
 
+
 Para ver todas las tareas disponibles: `invoke --list`
 ![](/docs/imagenes/invoke_list.png)
+## Gestor de dependencias
+He decidido utilizar el gestor de dependencias Poetry para el proyecto, para ello, se ha instalado siguiendo la [documentacion](https://python-poetry.org/docs/#osx--linux--bashonwindows-install-instructions) de su web.
+
+Los pasos a seguir **en Linux** son:
+
+    curl -sSL https://raw.githubusercontent.com/python-poetry poetry/master/get-poetry.py | python -
+
+
+    source $HOME/.poetry/env
 ***
 ## Clase Reparaciones
 
@@ -53,6 +63,8 @@ Para llevar a cabo la realización de los tests, he elegido el marco de test __P
 Además, __Pytest__ permite el uso de *fixtures*, estos son funciones que permiten crear objetos antes de ejecutar cada función de los test cuando se pasa como parámetro un objeto con el mismo nombre que el de la función *fixture*. De esta forma, si en una función del test modificamos el objeto creado en la función fixture, no hay que preocuparse en los demás test, ya que el objeto se vuelve a configurar antes de cada función test.
 
 Para ejecutar los tests se puede usar el comando `pytest` o directamente con el task runner `invoke install test`. Los tests creados se encuentran en [esta carpeta](test).
+
+
 
 ***
 ## Documentación adicional

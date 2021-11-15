@@ -12,7 +12,7 @@ def installdeps(ctx):
 	"""
 	Instala las dependencias necesarias para que la aplicación funcione.
 	"""  
-	run("pip install -r requirements.txt")
+	run("poetry install")
 
 @task
 def test(ctx):
