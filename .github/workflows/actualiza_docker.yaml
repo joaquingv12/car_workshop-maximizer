@@ -1,4 +1,8 @@
-on: push
+on:
+  push:
+    branches:
+    - main
+    - release/*
 name: deploy
 jobs:
   build-and-push:
