@@ -82,9 +82,9 @@ Para ejecutar los tests se puede usar el comando `pytest` o directamente con el 
 
 ## Contenedor
 
-Para poder desplegar el proyecto en un servidor en la nube, se ha utilizado  **Docker**. Como **contenedor base** he utilizado el **oficial del lenguaje de programación Python**, pero la **versión slim** que ocupa mucho menos tamaño que el lenguaje entero. Tenía pensado usar la versión alpine que ocupa todavía menos que la slim, pero he tenido problemas a la hora de ejecutar las tareas con el task runner invoke, por lo que he decidido usar la versión **slim** que funciona correctamente.
+Para poder desplegar el proyecto en un servidor en la nube, se ha utilizado  **Docker**. Como **contenedor base** he utilizado el **oficial del lenguaje de programación Python**, pero la **versión alpine** que ocupa mucho menos tamaño que el lenguaje entero. Inicialmente he tenido varios problemas al intentar ejecutar el task runner Invoke con esta versión, el problema era que esta versión no tenía instalado el compilador de C ni el shell de bash. Una vez instalados éstos, el task runner ha funcionado correctamente en el contenedor.
 
-Para esto, he utilizado el siguiente [Dockerfile](Dockerfile) que contiene la configuración de la imagen que se va a desplegar, entre esta configuración se encuentra como ya he dicho el uso de la versión slim de Python, `python:3.8-slim`.
+Para crear este contenedor, he utilizado el siguiente [Dockerfile](Dockerfile) que contiene la configuración de la imagen que se va a desplegar, entre esta configuración se encuentra, como ya he dicho, el uso de la versión alpine de Python, `python:3.8-alpine`.
 
 Este contenedor se encuentra publicado en DockerHub, en [joaquingv12/car_workshop-maximizer](https://hub.docker.com/r/joaquingv12/car_workshop-maximizer).
 
