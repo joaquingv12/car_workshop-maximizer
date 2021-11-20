@@ -2,14 +2,16 @@ name: Actualizar docker en DockerHub
 on: 
   push:
     paths:
-      - 'src/**'
-      - 'test/**'
+      - 'poetry.lock'
+      - 'pyproject.toml'
+      - 'Dockerfile'
     branches:
       - main
   pull_request:
     paths:
-      - 'src/**'
-      - 'test/**'
+      - 'poetry.lock'
+      - 'pyproject.toml'
+      - 'Dockerfile'
     branches:
       - main
 jobs:
