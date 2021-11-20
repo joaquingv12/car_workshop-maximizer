@@ -12,8 +12,8 @@ RUN apk update \
     && apk add bash
 
 
-# Ficheros necesarios para el gestor de dependencias y el gestor de tareas
-COPY tasks.py poetry.lock pyproject.toml ./ 
+# Ficheros necesarios para el gestor de dependencias
+COPY poetry.lock pyproject.toml ./ 
 
 # Instalar gestor de dependencias
 RUN pip install poetry \
