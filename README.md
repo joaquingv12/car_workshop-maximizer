@@ -45,6 +45,7 @@ El gestor de tareas que voy a utilizar para el proyecto es **Invoke**, que es un
 * `invoke installdeps`
 * `invoke test`
 * `invoke check`
+* `invoke rundocker`
 
 Para ver todas las tareas disponibles: `invoke --list`
 ![imagen con las opciones disponibles](/docs/imagenes/invoke_list.png)
@@ -55,10 +56,9 @@ He decidido utilizar el gestor de dependencias Poetry para el proyecto, para ell
 
 Los pasos a seguir **en Linux** son:
 
-    curl -sSL https://raw.githubusercontent.com/python-poetry poetry/master/get-poetry.py | python -
+    pip install poetry
+    poetry config virtualenvs.create false 
 
-
-    source $HOME/.poetry/env
 ***
 
 ## Clase Reparaciones
@@ -82,15 +82,20 @@ Para ejecutar los tests se puede usar el comando `pytest` o directamente con el 
 
 ## Contenedor
 
-Para poder desplegar el proyecto en un servidor en la nube, se ha utilizado  **Docker**. Como **contenedor base** he utilizado el **oficial del lenguaje de programación Python**, pero la **versión alpine** que ocupa mucho menos tamaño que el lenguaje entero. Inicialmente he tenido varios problemas al intentar ejecutar el task runner Invoke con esta versión, el problema era que esta versión no tenía instalado el compilador de C ni el shell de bash. Una vez instalados éstos, el task runner ha funcionado correctamente en el contenedor.
+Para poder desplegar el proyecto en un servidor en la nube, se ha utilizado  **Docker**. Como **contenedor base** he utilizado el **oficial del lenguaje de programación Python**, pero la **versión alpine**.
 
-Para crear este contenedor, he utilizado el siguiente [Dockerfile](Dockerfile) que contiene la configuración de la imagen que se va a desplegar, entre esta configuración se encuentra, como ya he dicho, el uso de la versión alpine de Python, `python:3.8-alpine`.
+**¿Por qué alpine?**
+He elegido esta versión ya que ocupa mucho menos tamaño que el lenguaje entero, esta versión contiene lo básico del lenguaje. Como en este caso, simplemente se usa el contenedor para pasar los test, he creído que esta forma es la más conveniente ya que también ayuda a que el contenedor se baje de forma rápida sin necesidad de perder mucho tiempo para pasar los test.
+
+Debido a que, como he dicho, alpine trae lo básico del lenguaje, inicialmente he tenido varios problemas al intentar ejecutar el task runner Invoke con esta versión, el problema era que esta versión no tenía instalado el compilador de C ni el shell de bash. Una vez instalados éstos, el task runner ha funcionado correctamente en el contenedor.
+
+Para crear este contenedor, he utilizado el siguiente [Dockerfile](Dockerfile) que contiene la configuración de la imagen que se va a desplegar, entre esta configuración se encuentra, como ya he dicho, el uso de la versión alpine de Python, `python:3.8-alpine`. A la hora de construir el contenedor para instalar las dependencias necesarias para los test hace uso de Poetry y una vez construido, para pasar los test uso el ENTRYPOINT, que permite especificar el ejecutable que va a usar el contenedor, concretamente `invoke test`.
 
 Este contenedor se encuentra publicado en DockerHub, en [joaquingv12/car_workshop-maximizer](https://hub.docker.com/r/joaquingv12/car_workshop-maximizer).
 
 Para correr el contenedor y que ejecute los test hay que hacer:
 
-    docker run -t -v `pwd`:/app/test joaquingv12/car_workshop-maximizer
+    invoke rundocker
 
 ***
 
