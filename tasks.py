@@ -31,3 +31,10 @@ def check(ctx):
 		print("Sintaxis correcta")
 	except:
 		print("Sintaxis incorrecta")
+
+@task
+def rundocker(ctx):
+	"""
+	Comprueba que el código funciona correctamente.
+	"""
+	run("docker run -t -v `pwd`:/app/test joaquingv12/car_workshop-maximizer")
