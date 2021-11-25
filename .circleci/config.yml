@@ -6,9 +6,10 @@ orbs:
 jobs:
   test_app:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/python:3.8
     steps:
       - checkout
+      - run: pip install invoke
       - run:
           name: Run tests
           command: invoke rundocker
