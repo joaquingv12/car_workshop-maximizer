@@ -1,0 +1,19 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@1.2
+
+jobs:
+  test_app:
+    docker:
+      - image: joaquingv12/car_workshop-maximizer
+    steps:
+      - checkout
+      - run:
+          name: Run tests
+          command: invoke rundocker
+
+workflows:
+  testear_app:
+    jobs:
+      - test_app
