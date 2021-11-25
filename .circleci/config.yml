@@ -10,6 +10,8 @@ jobs:
     steps:
       - checkout
       - run: pip install invoke
+      - setup_remote_docker:
+          version: 19.03.13
       - run:
           name: Run tests
           command: invoke rundocker
