@@ -81,15 +81,29 @@ Para ejecutar los tests se puede usar el comando `pytest` o directamente con el 
 ***
 
 ## Contenedor
+Para poder desplegar el proyecto en un servidor en la nube, se ha utilizado  **Docker**. Como **contenedor base** he utilizado el **oficial del lenguaje de programación Python**, pero la **versión 3.8:slim-buster**.
 
-Para poder desplegar el proyecto en un servidor en la nube, se ha utilizado  **Docker**. Como **contenedor base** he utilizado el **oficial del lenguaje de programación Python**, pero la **versión alpine**.
+**1. Requisitos**
+   1. Versión de Python 3.8, ya que es la versión de Python que estoy utilizando para desarrollar el proyecto.
+   2. Que sea una imagen oficial.
+   3. Que esté mantenida actualmente.
+   4. Versión ligera, ya que sólo es necesario para pasar los tests.
+   5. Tiene que tener instalado el compilador gcc y el shell de bash para que funcione Invoke.
 
-**¿Por qué alpine?**
-He elegido esta versión ya que ocupa mucho menos tamaño que el lenguaje entero, esta versión contiene lo básico del lenguaje. Como en este caso, simplemente se usa el contenedor para pasar los test, he creído que esta forma es la más conveniente ya que también ayuda a que el contenedor se baje de forma rápida sin necesidad de perder mucho tiempo para pasar los test.
+**2. Parámetros de la búsqueda**
+Tras hacer una búsqueda, las imágenes que cumplen estos requisitos son: python:3.8-slim, python:3.8-slim-buster y python:3.8-slim-bullseye. He descartado la versión alpine, a pesar de ser la más ligera, porque he leído en varias webs, como por ejemplo, [ejemplo1](https://pythonspeed.com/articles/alpine-docker-python/), [ejemplo2](https://pythonspeed.com/articles/base-image-python-docker-images/) que no es muy recomendable.
 
-Debido a que, como he dicho, alpine trae lo básico del lenguaje, inicialmente he tenido varios problemas al intentar ejecutar el task runner Invoke con esta versión, el problema era que esta versión no tenía instalado el compilador de C ni el shell de bash. Una vez instalados éstos, el task runner ha funcionado correctamente en el contenedor.
+**3. Pruebas**
+Tras hacer pruebas con cada uno de ellos, he obtenido los siguientes tamaños de imaǵenes:
+| Imagen        | Tamaño |
+|---------------|--------|
+| slim          | 181 MB |
+| slim-buster   | 173 MB |
+| slim-bullseye | 181 MB |
 
-Para crear este contenedor, he utilizado el siguiente [Dockerfile](Dockerfile) que contiene la configuración de la imagen que se va a desplegar, entre esta configuración se encuentra, como ya he dicho, el uso de la versión alpine de Python, `python:3.8-alpine`. A la hora de construir el contenedor para instalar las dependencias necesarias para los test hace uso de Poetry y una vez construido, para pasar los test uso el ENTRYPOINT, que permite especificar el ejecutable que va a usar el contenedor, concretamente `invoke test`.
+Como con todas ellas, funcionan correctamente los test, voy a usar la que menos tamaño ocupa a pesar de que la diferencia no es muy notable ya que también ayuda a que el contenedor se baje de forma rápida sin necesidad de perder mucho tiempo para pasar los test.
+
+Para crear este contenedor, he utilizado el siguiente [Dockerfile](Dockerfile) que contiene la configuración de la imagen que se va a desplegar, entre esta configuración se encuentra, como ya he dicho, el uso de la versión slim-buster de Python, `python:3.8-slim-buster`. A la hora de construir el contenedor, para instalar las dependencias necesarias para los test, hace uso de Poetry y una vez construido, para pasar los test, uso el ENTRYPOINT, que permite especificar el ejecutable que va a usar el contenedor, concretamente `invoke test`.
 
 Este contenedor se encuentra publicado en DockerHub, en [joaquingv12/car_workshop-maximizer](https://hub.docker.com/r/joaquingv12/car_workshop-maximizer).
 
