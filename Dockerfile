@@ -1,16 +1,9 @@
 #Contenedor base
-FROM python:3.8-alpine
+FROM python:3.8-slim-buster
 LABEL version="1.0.0" maintainer="joaquingv12@gmail.com"
 
 # Directorio donde trabajar inicialmente para instalar dependencias y task runner
 WORKDIR /app/
-
-#Instalo el compilador de C y el shell de bash para que funcione Invoke
-RUN apk update \
-    && apk upgrade \
-    && apk add gcc musl-dev libffi-dev \
-    && apk add bash
-
 
 # Ficheros necesarios para el gestor de dependencias
 COPY poetry.lock pyproject.toml ./ 
