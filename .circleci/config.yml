@@ -6,7 +6,7 @@ orbs:
 jobs:
   test_app:
     docker:
-      - image: joaquingv12/car_workshop-maximizer
+      - image: circleci/python:3.8
     steps:
       - checkout
       - run:
