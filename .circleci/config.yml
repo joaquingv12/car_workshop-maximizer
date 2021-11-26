@@ -1,20 +1,20 @@
 version: 2.1
 
-orbs:
-  python: circleci/python@1.2
+executors:
+  my-executor:
+    docker:
+      -image: cimg/python:3.8
 
 jobs:
   test_app:
-    docker:
-      - image: cimg/python:3.8
+    executor: my-executor
     steps:
       - checkout
-      - run: pip install invoke
       - setup_remote_docker:
           version: 19.03.13
       - run:
           name: Run tests
-          command: invoke rundocker
+          command: docker run -t -v `pwd`:/app/test joaquingv12/car_workshop-maximizer
 
 workflows:
   testear_app:
