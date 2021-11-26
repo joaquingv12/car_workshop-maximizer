@@ -12,9 +12,7 @@ jobs:
       - checkout
       - run:
           name: "Cambiar version de Python"
-          command: |
-            pyenv install 3.8.0
-            pyenv global 3.8.0
+          command: pyenv global 3.7.0
       - run:
           name: Instalar task runner
           command: pip install invoke
