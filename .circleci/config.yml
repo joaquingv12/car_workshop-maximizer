@@ -10,6 +10,7 @@ jobs:
     executor: executor-ubuntu
     steps:
       - checkout
+      - run: alias python=python3
       - run:
           name: Install task runner
           command: pip install invoke
