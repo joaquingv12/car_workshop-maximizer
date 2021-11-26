@@ -1,0 +1,24 @@
+name: Testear la aplicación
+on: 
+  push:
+    paths:
+      - 'src/**'
+      - 'test/**'
+      - 'tasks.py'
+    branches:
+      - main
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'test/**'
+      - 'tasks.py'
+    branches:
+      - main
+jobs:
+  testea_ap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run tests
+        run: invoke rundocker
+        
