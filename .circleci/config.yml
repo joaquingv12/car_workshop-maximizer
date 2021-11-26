@@ -1,20 +1,18 @@
 version: 2.1
 
 executors:
-  my-executor:
-    docker:
-      - image: cimg/python:3.8
+  executor-ubuntu:
+    machine:
+      image: ubuntu-2004:202111-01
 
 jobs:
   test_app:
-    executor: my-executor
+    executor: executor-ubuntu
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 19.03.13
       - run:
           name: Run tests
-          command: docker run -t -v `pwd`:/app/test joaquingv12/car_workshop-maximizer
+          command: invoke rundocker
 
 workflows:
   testear_app:
