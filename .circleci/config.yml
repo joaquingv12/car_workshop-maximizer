@@ -10,9 +10,11 @@ jobs:
     executor: executor-ubuntu
     steps:
       - checkout
-      - run: alias python=python3
       - run:
-          name: Install task runner
+          name: "Cambiar version de Python"
+          command: pyenv global 3.8.0
+      - run:
+          name: Instalar task runner
           command: pip install invoke
       - run:
           name: Run tests
