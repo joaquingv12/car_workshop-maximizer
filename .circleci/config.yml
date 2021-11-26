@@ -11,6 +11,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install task runner
+          command: pip install invoke
+      - run:
           name: Run tests
           command: invoke rundocker
 
