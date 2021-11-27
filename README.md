@@ -122,6 +122,19 @@ Aparte de las GitHub Actions se necesita un sistema online que sea estándar y f
   
 Con estas opciones, teniendo en cuenta que Travis a pesar de conectarse con GitHub Education te obligaba a elegir un plan e introducir una tarjeta de crédito, he decidido descartarlo. Entre las demás opciones, he elegido Circle CI, ya que tras un primer uso, he visto que es sencilla de configurar, con sólo elegir el lenguaje de programación ya te da una plantilla de configuración que permite crear un trabajo para pasar los test, la cual sólo hay que modificarla como queramos, y además, es obligatorio usarlo para alcanzar el objetivo de integración continua de la asignatura.
 
+### Configuración de Circle CI
+
+La configuración del sistema de integración continua CircleCI se encuentra en el siguiente [fichero](.circleci/config.yml), llamado *config.yml* y que para que funcione correctamente tiene que estar dentro de la carpeta *.circleci*. Algunos aspectos relevantes de la configuración son:
+
+**Executors**: Definen el entorno en donde se van a desarrollar los trabajos (jobs) creados en *config.yaml*. Tiene varias formas de hacerlo, tras haber probado a hacerlo con un contenedor, me he dado cuenta que no es la forma más sencilla de hacerlo, dado que debería montar mi repositorio en ese contenedor y ese a su vez debería montarlo en el contenedor creado anteriormente para los test. Por tanto, he optado por usar el executor con la opción *machine* que permite correr trabajos en una máquina virtual de entre las imágenes disponibles de la siguiente [lista de imágenes](https://circleci.com/docs/2.0/configuration-reference/#available-machine-images) , como estoy desarrollando mi proyecto en Ubuntu, he elegido la versión más reciente, `ubuntu-2004:202111-01`, que contiene Ubuntu 20.04, Docker v20.10.11, Docker Compose v1.29.2
+
+**Steps**: Los pasos que he tenido que configurar con CircleCI para pasar los test son los siguientes:
+    1. Checkout
+    2. Cambiar a la versión 3 de Python, ya que es la que estoy utilizando para desarrollar la aplicación. Si uso la versión 2, da algunos errores como el siguiente, *Non-ASCII character '\xe3' in file... but no encoding declared*, porque tendría que añadir al inicio de cada archivo con código Python la codificación que se está usando. La máquina virtual usada (ubuntu-2004:202111-01) trae la versión 3.9.7, por tanto, como esta es la versión 3 es la que usaré. De esta forma no tengo que instalar ninguna versión más a la imagen así no se pierde tiempo cada vez que se van a pasar los test en instalar una versión de Python a la imagen.
+    3. Instalo el task runner para llevar a cabo la tarea encargada de pasar los test en el contenedor.
+    4. Ejecuto la tarea que arranca el contenedor creado en el objetivo anterior y que pasa los test.
+
+
 ## Documentación adicional
 
 * [Configuración de git](docs/configurar_git.md)
