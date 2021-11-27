@@ -1,0 +1,18 @@
+name: Testear la aplicación
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  testea_app:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Instalar task runner
+        run: pip install invoke
+      - name: Run tests
+        run: invoke rundocker
+        
