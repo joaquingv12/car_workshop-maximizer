@@ -4,3 +4,4 @@ automatizar:
   fichero: tasks.py
   orden: invoke install
 test: test/test_vehiculos.py
+CI: .circleci/config.yml
