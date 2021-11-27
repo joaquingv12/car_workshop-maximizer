@@ -112,6 +112,15 @@ Para correr el contenedor y que ejecute los test hay que hacer:
     invoke rundocker
 
 ***
+## Sistemas de integración continua
+Para la integración continua voy a usar una GitHub Action y además, usaré otro sistema online. La GitHub Action que voy a usar es la que se encuentra en el siguiente [fichero](.github/workflows/test_app.yml), el cual está dentro de la carpeta *.github/workflows*
+
+Aparte de las GitHub Actions se necesita un sistema online que sea estándar y flexible para poder hacer integración continua, las diferentes opciones son las siguientes (entre otras muchas):
+* Travis CI
+* Circle CI
+* Semaphore CI
+  
+Con estas opciones, teniendo en cuenta que Travis a pesar de conectarse con GitHub Education te obligaba a elegir un plan e introducir una tarjeta de crédito, he decidido descartarlo. Entre las demás opciones, he elegido Circle CI, ya que tras un primer uso, he visto que es sencilla de configurar, con sólo elegir el lenguaje de programación ya te da una plantilla de configuración que permite crear un trabajo para pasar los test, la cual sólo hay que modificarla como queramos, y además, es obligatorio usarlo para alcanzar el objetivo de integración continua de la asignatura.
 
 ## Documentación adicional
 
