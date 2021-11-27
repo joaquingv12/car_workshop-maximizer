@@ -1,0 +1,26 @@
+version: 2.1
+
+executors:
+  executor-ubuntu:
+    machine:
+      image: ubuntu-2004:202111-01
+
+jobs:
+  test_app:
+    executor: executor-ubuntu
+    steps:
+      - checkout
+      - run:
+          name: "Cambiar version de Python"
+          command: pyenv global 3.9.7
+      - run:
+          name: Instalar task runner
+          command: pip install invoke
+      - run:
+          name: Run tests
+          command: invoke rundocker
+
+workflows:
+  testear_app:
+    jobs:
+      - test_app
