@@ -15,7 +15,7 @@ jobs:
           command: pyenv global 3.9.7
       - run:
           name: Instalar poetry
-          command: pip install poetry
+          command: pip install poetry && poetry config virtualenvs.create false
       - run:
           name: Instalar dependencias
           command: poetry install
