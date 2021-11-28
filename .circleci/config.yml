@@ -15,11 +15,13 @@ jobs:
           command: pyenv global 3.9.7
       - run:
           name: Instalar poetry
-          command: pip install poetry && poetry config virtualenvs.create false
+          command: pip install poetry
+      - run:
+          name: Instalar dependencias
+          command: poetry install 
       - run:
           name: Run tests
-          command: poetry install && invoke rundocker
-      
+          command: poetry run invoke rundocker
 
 workflows:
   testear_app:
