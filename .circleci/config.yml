@@ -17,11 +17,9 @@ jobs:
           name: Instalar poetry
           command: pip install poetry && poetry config virtualenvs.create false
       - run:
-          name: Instalar dependencias
-          command: poetry install
-      - run:
           name: Run tests
-          command: invoke rundocker
+          command: poetry install && invoke rundocker
+      
 
 workflows:
   testear_app:
