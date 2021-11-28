@@ -14,8 +14,11 @@ jobs:
           name: "Cambiar version de Python"
           command: pyenv global 3.9.7
       - run:
-          name: Instalar task runner
-          command: pip install invoke
+          name: Instalar poetry
+          command: pip install poetry
+      - run:
+          name: Instalar dependencias
+          command: poetry install
       - run:
           name: Run tests
           command: invoke rundocker
