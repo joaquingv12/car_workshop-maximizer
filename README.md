@@ -134,7 +134,13 @@ La configuración del sistema de integración continua CircleCI se encuentra en 
 3. Instalo el task runner para llevar a cabo la tarea encargada de pasar los test en el contenedor.
 4. Ejecuto la tarea que arranca el contenedor creado en el objetivo anterior y que pasa los test.
 
+## Testear diferentes versiones de Python
+Para hacer esta tarea, la he llevado a cabo a través de la GitHub Action definida en [test_app.yml](.github/workflows/test_app.yml). Localmente, estoy desarrollando la aplicación con la versión 3.8 de Python, pero he querido comprobar si era compatible con versiones anteriores, para ello he comprobado las siguientes versiones de Python:
 
+* 3.5: Obtenía el siguiente error, *pytest (6.2.5) requires Python >=3.6*, que como deja claro, no es posible usar esa versión ni anteriores porque la versión de pytest que uso no es compatible con versiones anteriores a la versión 3.6 de Python.
+* 3.6 y 3.7: Obtenía el siguiente error,  *ModuleNotFoundError: No module named 'importlib_metadata'*, por lo que tampoco era posible testear la aplicación con esas versiones dado que esas versiones no tienen el módulo importlib_metadata.
+
+A partir de la 3.8 hasta la 3.10, que es la última versión de Python actualmente, no ha habido ningún problema. Por eso, las versiones que uso para testear son las 3.8, 3.9 y 3.10 en distintos sistemas operativos, entre ellos, Ubuntu, Windows y MacOS.
 ## Documentación adicional
 
 * [Configuración de git](docs/configurar_git.md)
