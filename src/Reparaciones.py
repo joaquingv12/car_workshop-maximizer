@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from src.Vehiculo import *
 
 class Reparaciones:
