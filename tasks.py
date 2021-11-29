@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from invoke import task, run
 @task
 def install(ctx):
