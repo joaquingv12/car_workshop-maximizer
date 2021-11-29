@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import pytest
 from src.Reparaciones import *
 from src.Vehiculo import *
