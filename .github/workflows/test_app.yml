@@ -1,5 +1,5 @@
 name: Testear la aplicación
-on: [push, pull_request]
+on: [push]
 jobs:
   testea_app:
     runs-on: ${{ matrix.os }}
