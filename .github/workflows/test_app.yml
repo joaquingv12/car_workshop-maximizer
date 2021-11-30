@@ -1,11 +1,5 @@
 name: Testear la aplicación
-on: 
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+on: [push, pull_request]
 jobs:
   testea_app:
     runs-on: ${{ matrix.os }}
