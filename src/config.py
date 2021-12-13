@@ -12,7 +12,8 @@ class Config:
             self.etcd_port = 3000
             self.etcd_client = etcd3.client(port=self.etcd_port)
 
-        self.logger_config = {'level':os.getenv('LOG_LEVEL'),'file':os.getenv('LOG_FILE')} 
+        self.logger_config = {'level':os.getenv('LOG_LEVEL'),'format':os.getenv('LOG_FORMAT'),
+                    'file':os.getenv('LOG_FILE'), 'rotation':os.getenv('LOG_ROTATION')} 
 
     def get_logger_config(self):
         return self.logger_config

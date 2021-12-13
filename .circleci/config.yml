@@ -12,7 +12,7 @@ jobs:
       - checkout
       - run:
           name: Run tests
-          command: docker run -e ETCD_PORT=${ETCD_PORT} -e LOG_FILE=${LOG_FILE} -e LOG_LEVEL=${LOG_LEVEL} -t -v `pwd`:/app/test joaquingv12/car_workshop-maximizer
+          command: docker run -e ETCD_PORT=${ETCD_PORT} -e LOG_FILE=${LOG_FILE} -e LOG_LEVEL=${LOG_LEVEL} -e LOG_FORMAT=${LOG_FORMAT} -e LOG_ROTATION=${LOG_ROTATION} -t -v `pwd`:/app/test joaquingv12/car_workshop-maximizer
 
 workflows:
   testear_app:
