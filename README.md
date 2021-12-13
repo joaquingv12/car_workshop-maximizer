@@ -160,7 +160,7 @@ Tras hacer una búsqueda, algunos de los frameworks que permiten el manejo de re
 
 En primer lugar, he consultado *logbook*, pero tras un primer vistazo a su [repositorio](https://github.com/getlogbook/logbook) he decidido descartarlo dado que el último commit que se hizo fue hace 3 años y la última versión que hay disponible es del 28 de Julio de 2016 además de que tiene muchos issues sin resolver. 
 
-Por otro lado, en el caso de [luguru](https://github.com/Delgan/loguru) se nota que están trabajando actualmente dado que hicieron el último commit hace sólo 2 meses. Además, tal y como se presenta, dice que su objetivo es facilitar la configuración de los logs. Es muy sencillo de utilizar, tal y como dice en su [documentación](https://loguru.readthedocs.io/en/stable/api/logger.html), tan sólo necesitamos importarlo en nuestro proyecto:
+Por otro lado, en el caso de [luguru](https://github.com/Delgan/loguru) se nota que están trabajando actualmente dado que hicieron el último commit hace sólo 2 meses. Además, tal y como se presenta, dice que su objetivo es facilitar la configuración de los logs, es muy sencillo de utilizar como dice en su [documentación](https://loguru.readthedocs.io/en/stable/api/logger.html), tan sólo necesitamos importarlo en nuestro proyecto:
 
 ```python
 from loguru import logger
@@ -178,11 +178,11 @@ También tiene una forma muy fácil de hacer que los ficheros donde se almacenan
 logger.add("file_1.log", rotation="100 MB")
 ```
 
-Finalmente, también está la librería oficial de Python para el manejo de logs, [logging](https://docs.python.org/3/library/logging.html), pero no es tan fácil de configurar como la de loguru, cuyo objetivo es facilitar la configuración con respecto a logging.
+Finalmente, también está la librería oficial de Python para el manejo de logs, [logging](https://docs.python.org/3/library/logging.html), pero no es tan fácil de configurar como la de loguru, cuyo propósito es facilitar la configuración con respecto a logging.
 
 Por tanto, he decido usar **loguru**, cuya configuración se encuentra en [logger.py](src/logger.py).
 
-NOTA: Para que el logger creado en la aplicación registre los logs cuando se están pasando los test, es necesario indicar a pytest que no maneje él los logs, por esto, he modificado la tarea que pasa los tests con el siguiente comando:
+**NOTA**: Para que el logger creado en la aplicación registre los logs cuando se están pasando los test, es necesario indicar a pytest que no maneje él los logs, por esto, he modificado la tarea que pasa los tests con el siguiente comando:
 ```pytest -p no:logging```
 
 ## Sistema de configuración
@@ -201,7 +201,14 @@ Algunos de los frameworks que he encontrado y que permiten hacer esto son:
 
 Para poder configurar con Apache Zokeeper, habría que utilizar el cliente de Python de [kazoo](https://kazoo.readthedocs.io/en/latest/index.html).He buscado algunas ejemplos del uso de éste pero apenas he encontrado ejemplos y aquellos que he encontrado son complejos, por tanto, he decidido descartarlo.
 
-En el caso de etcd simplemente habría que instalarlo e importarlo a la aplicación. Dada su facilidad para usarlo y que además, éste es el que hemos visto en las clase de teoría, he decidido que lo más oportuno es usar este. Junto con etcd voy a usar *Dotenv*, el cual permite leer las variables de entorno de un fichero de configuración.
+En el caso de etcd simplemente habría que instalarlo e importarlo a la aplicación. Dada su facilidad para usarlo y que además, éste es el que hemos visto en las clase de teoría, he decidido que lo más oportuno es usar este. Junto con etcd voy a usar *Dotenv*, el cual permite leer las variables de entorno de un fichero de configuración. La configuración de etcd se encuentra en el fichero [config.py](src/config.py). 
+
+**NOTA**: Para los sistemas de integración continua dado que el repositorio no tiene el archivo .env con las variables de entorno, hay que almacenar estas variables en los propios sistemas, CircleCI tiene una opción para esto en la configuración del proyecto y en el caso de las GitHub Action, se puede hacer uso de las variables secrets del repositorio. Además de esto, a la hora de correr el contenedor con los test, hay que indicar que utilice estas variables de entorno de la siguiente forma:
+
+``` bash
+docker run -e ETCD_PORT=${ETCD_PORT} -e LOG_FILE=${LOG_FILE} -e LOG_LEVEL=${LOG_LEVEL} -t -v `pwd`:/app/test joaquingv12/car_workshop-maximizer
+```
+
 ***
 ## Documentación adicional
 
