@@ -2,8 +2,7 @@ try:
     from logger import *
     from Reparaciones import *
     from Vehiculo import *
-
-except ImportError:
+except ModuleNotFoundError:
     from src.logger import *
     from src.Reparaciones import *
     from src.Vehiculo import *
