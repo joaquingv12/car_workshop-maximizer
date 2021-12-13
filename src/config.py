@@ -4,7 +4,7 @@ import os
 
 class Config:
     def __init__(self):
-        load_dotenv(dotenv_path='src/config.env')
+        load_dotenv()
         try:
             self.etcd_port = os.getenv('ETCD_PORT')
             self.etcd_client = etcd3.client(port=self.etcd_port)
