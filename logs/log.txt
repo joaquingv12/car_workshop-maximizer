@@ -1,0 +1,24 @@
+13-12-2021 at 17:29:37 | INFO     |  src.manejador : 19  | crear_nueva_reparacion | Se ha creado una nueva reparación
+13-12-2021 at 17:29:37 | INFO     |  src.manejador : 37  | añadir_nuevo_vehiculo_reparacion | Se ha añadido un nuevo vehiculo a la reparación
+13-12-2021 at 17:29:37 | INFO     |  src.manejador : 28  | crear_nuevo_vehiculo | Se ha creado un nuevo vehiculo
+13-12-2021 at 17:29:37 | INFO     |  src.manejador : 45  | añadir_nueva_averia_vehiculo | Se ha añadido una nueva averia al vehiculo
+13-12-2021 at 17:29:37 | INFO     |  src.manejador : 28  | crear_nuevo_vehiculo | Se ha creado un nuevo vehiculo
+13-12-2021 at 17:29:37 | INFO     |  src.manejador : 53  | aniadir_fecha_salida_vehiculo | Se ha añadido una nueva fecha de salida al vehiculo
+13-12-2021 at 17:29:37 | INFO     |  src.manejador : 28  | crear_nuevo_vehiculo | Se ha creado un nuevo vehiculo
+13-12-2021 at 17:29:37 | INFO     |  src.manejador : 61  | cambiar_estado_reparacion_vehiculo | Se ha cambiado el estado de la reparación del vehiculo
+13-12-2021 at 17:38:58 | INFO     |  src.manejador : 19  | crear_nueva_reparacion | Se ha creado una nueva reparación
+13-12-2021 at 17:38:58 | INFO     |  src.manejador : 37  | añadir_nuevo_vehiculo_reparacion | Se ha añadido un nuevo vehiculo a la reparación
+13-12-2021 at 17:38:58 | INFO     |  src.manejador : 28  | crear_nuevo_vehiculo | Se ha creado un nuevo vehiculo
+13-12-2021 at 17:38:58 | INFO     |  src.manejador : 45  | añadir_nueva_averia_vehiculo | Se ha añadido una nueva averia al vehiculo
+13-12-2021 at 17:38:58 | INFO     |  src.manejador : 28  | crear_nuevo_vehiculo | Se ha creado un nuevo vehiculo
+13-12-2021 at 17:38:58 | INFO     |  src.manejador : 53  | aniadir_fecha_salida_vehiculo | Se ha añadido una nueva fecha de salida al vehiculo
+13-12-2021 at 17:38:58 | INFO     |  src.manejador : 28  | crear_nuevo_vehiculo | Se ha creado un nuevo vehiculo
+13-12-2021 at 17:38:58 | INFO     |  src.manejador : 61  | cambiar_estado_reparacion_vehiculo | Se ha cambiado el estado de la reparación del vehiculo
+13-12-2021 at 18:31:53 | INFO     |  src.manejador : 19  | crear_nueva_reparacion | Se ha creado una nueva reparación
+13-12-2021 at 18:31:53 | INFO     |  src.manejador : 37  | añadir_nuevo_vehiculo_reparacion | Se ha añadido un nuevo vehiculo a la reparación
+13-12-2021 at 18:31:53 | INFO     |  src.manejador : 28  | crear_nuevo_vehiculo | Se ha creado un nuevo vehiculo
+13-12-2021 at 18:31:53 | INFO     |  src.manejador : 45  | añadir_nueva_averia_vehiculo | Se ha añadido una nueva averia al vehiculo
+13-12-2021 at 18:31:53 | INFO     |  src.manejador : 28  | crear_nuevo_vehiculo | Se ha creado un nuevo vehiculo
+13-12-2021 at 18:31:53 | INFO     |  src.manejador : 53  | aniadir_fecha_salida_vehiculo | Se ha añadido una nueva fecha de salida al vehiculo
+13-12-2021 at 18:31:53 | INFO     |  src.manejador : 28  | crear_nuevo_vehiculo | Se ha creado un nuevo vehiculo
+13-12-2021 at 18:31:53 | INFO     |  src.manejador : 61  | cambiar_estado_reparacion_vehiculo | Se ha cambiado el estado de la reparación del vehiculo
