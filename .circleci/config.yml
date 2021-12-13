@@ -21,7 +21,7 @@ jobs:
           command: poetry install 
       - run:
           name: Run tests
-          command: poetry run invoke rundocker
+          command: docker run -e ETCD_PORT=${ETCD_PORT} LOG_FILE=${LOG_FILE} LOG_LEVEL=${LOG_LEVEL} -t -v `pwd`:/app/test joaquingv12/car_workshop-maximizer
 
 workflows:
   testear_app:
