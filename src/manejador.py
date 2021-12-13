@@ -9,7 +9,6 @@ except ModuleNotFoundError:
 
 class Manejador():
     def __init__(self):
-        super().__init__()
         self.logger = logger
 
     def crear_nueva_reparacion(self,lista_vehiculos,puestos_reparacion):
