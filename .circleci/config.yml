@@ -11,15 +11,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Cambiar version de Python"
-          command: pyenv global 3.9.7
-      - run:
-          name: Instalar poetry
-          command: pip install poetry
-      - run:
-          name: Instalar dependencias
-          command: poetry install 
-      - run:
           name: Run tests
           command: docker run -e ETCD_PORT=${ETCD_PORT} -e LOG_FILE=${LOG_FILE} -e LOG_LEVEL=${LOG_LEVEL} -t -v `pwd`:/app/test joaquingv12/car_workshop-maximizer
 
