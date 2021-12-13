@@ -19,5 +19,5 @@ jobs:
       - name: Instalar dependencias
         run: poetry install
       - name: Run tests
-        run: poetry run invoke test
+        run: docker run -e ETCD_PORT=${{secrets.ETCD_PORT}} -e LOG_FILE=${{secrets.LOG_FILE}} -e LOG_LEVEL=${{secrets.LOG_LEVEL}} -t -v `pwd`:/app/test joaquingv12/car_workshop-maximizer
         
