@@ -37,4 +37,7 @@ def rundocker(ctx):
 	"""
 	Comprueba que el código funciona correctamente.
 	"""
-	run("docker run -t -v `pwd`:/app/test joaquingv12/car_workshop-maximizer")
+	try:
+		run("docker run -t -v `pwd`:/app/test joaquingv12/car_workshop-maximizer")
+	except:
+		run("docker run -e ETCD_PORT=$ETCD_PORT -e LOG_DIR=$LOG_DIR -e LOG_FILE=$LOG_FILE -e LOG_LEVEL=$LOG_LEVEL -e LOG_FORMAT=$LOG_FORMAT -t -v `pwd`:/app/test joaquingv12/car_workshop-maximizer")
