@@ -141,6 +141,68 @@ Para hacer esta tarea, la he llevado a cabo a través de la GitHub Action defini
 * 3.6 y 3.7: Obtenía el siguiente error,  *ModuleNotFoundError: No module named 'importlib_metadata'*, por lo que tampoco era posible testear la aplicación con esas versiones dado que esas versiones no tienen el módulo importlib_metadata.
 
 A partir de la 3.8 hasta la 3.10, que es la última versión de Python actualmente, no ha habido ningún problema. Por eso, las versiones que uso para testear son las 3.8, 3.9 y 3.10 en distintos sistemas operativos, entre ellos, Ubuntu, Windows y MacOS.
+
+## Servicio de registros de logs
+
+Los requisitos que necesito que tenga el servicio de logs son:  
+
+1. Compatibilidad con Python
+2. Mantenido actualmente
+3. Configuración distribuida de forma sencilla
+4. Permitir almacenar logs en ficheros
+
+Tras hacer una búsqueda, algunos de los frameworks que permiten el manejo de registros para Python son:
+
+* [logbook](https://github.com/getlogbook/logbook)
+* [logging](https://docs.python.org/3/library/logging.html)
+* [loguru](https://github.com/Delgan/loguru)
+
+
+En primer lugar, he consultado *logbook*, pero tras un primer vistazo a su [repositorio](https://github.com/getlogbook/logbook) he decidido descartarlo dado que el último commit que se hizo fue hace 3 años y la última versión que hay disponible es del 28 de Julio de 2016 además de que tiene muchos issues sin resolver. 
+
+Por otro lado, en el caso de [luguru](https://github.com/Delgan/loguru) se nota que están trabajando actualmente dado que hicieron el último commit hace sólo 2 meses. Además, tal y como se presenta, dice que su objetivo es facilitar la configuración de los logs. Es muy sencillo de utilizar, tal y como dice en su [documentación](https://loguru.readthedocs.io/en/stable/api/logger.html), tan sólo necesitamos importarlo en nuestro proyecto:
+
+```python
+from loguru import logger
+```
+
+Luego sólo tenemos que usar los métodos que nos ofrece la librería. No es necesario crear ninguna instancia de esta clase, ya que se crea automáticamente al importar la librería, tan sólo tenemos que configurarlo de una forma muy sencilla de la siguiente forma:
+
+```python
+logger.add(sys.stderr, format="{time} {level} {message}", filter="my_module", level="INFO")
+```
+
+También tiene una forma muy fácil de hacer que los ficheros donde se almacenan los logs vayan rotando, por ejemplo, al llegar a un determinado tamaño:
+
+```python
+logger.add("file_1.log", rotation="100 MB")
+```
+
+Finalmente, también está la librería oficial de Python para el manejo de logs, [logging](https://docs.python.org/3/library/logging.html), pero no es tan fácil de configurar como la de loguru, cuyo objetivo es facilitar la configuración con respecto a logging.
+
+Por tanto, he decido usar **loguru**, cuya configuración se encuentra en [logger.py](src/logger.py).
+
+NOTA: Para que el logger creado en la aplicación registre los logs cuando se están pasando los test, es necesario indicar a pytest que no maneje él los logs, por esto, he modificado la tarea que pasa los tests con el siguiente comando:
+```pytest -p no:logging```
+
+## Sistema de configuración
+
+Los requisitos que necesito que tenga el sistema de configuración son:
+
+1. Compatibilidad con Python
+2. Permitir configuración remota
+3. Permitir usar depósitos clave-valor
+4. Mantener la configuración en el entorno
+
+Algunos de los frameworks que he encontrado y que permiten hacer esto son:
+* [etcd](https://etcd.io/)
+* [Apache ZooKeeper](https://zookeeper.apache.org/)
+
+
+Para poder configurar con Apache Zokeeper, habría que utilizar el cliente de Python de [kazoo](https://kazoo.readthedocs.io/en/latest/index.html).He buscado algunas ejemplos del uso de éste pero apenas he encontrado ejemplos y aquellos que he encontrado son complejos, por tanto, he decidido descartarlo.
+
+En el caso de etcd simplemente habría que instalarlo e importarlo a la aplicación. Dada su facilidad para usarlo y que además, éste es el que hemos visto en las clase de teoría, he decidido que lo más oportuno es usar este. Junto con etcd voy a usar *Dotenv*, el cual permite leer las variables de entorno de un fichero de configuración.
+***
 ## Documentación adicional
 
 * [Configuración de git](docs/configurar_git.md)
