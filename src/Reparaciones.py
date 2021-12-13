@@ -1,5 +1,7 @@
-from src.Vehiculo import *
-
+try:
+    from src.Vehiculo import *
+except ImportError:
+    from Vehiculo import *
 class Reparaciones:
     '''
     Clase que gestiona las reparaciones de los vehículos del taller para cada día. 
@@ -44,5 +46,4 @@ class Reparaciones:
     
     def tiempo_estimado_terminar_reparaciones():
         ''' Devolvera el tiempo estimado para terminar todas las reparaciones del día '''
-
 
