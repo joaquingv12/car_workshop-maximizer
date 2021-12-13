@@ -13,8 +13,7 @@ class Config:
             self.etcd_client = etcd3.client(port=self.etcd_port)
 
         self.logger_config = {'dir':os.getenv('LOG_DIR'), 'level':os.getenv('LOG_LEVEL'),
-                            'file':os.getenv('LOG_FILE'), 'format':os.getenv('LOG_FORMAT'), 
-                            'date_format':os.getenv('LOG_DATE_FORMAT')} 
+                            'file':os.getenv('LOG_FILE')} 
 
     def get_logger_config(self):
         return self.logger_config
