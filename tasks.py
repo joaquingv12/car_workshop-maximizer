@@ -19,7 +19,7 @@ def test(ctx):
 	"""
 	Comprueba que el código funciona correctamente.
 	"""
-	run("pytest")
+	run("pytest -p no:logging")
 
 @task
 def check(ctx):

@@ -6,7 +6,7 @@ jobs:
     strategy:
       matrix:
         python-version: ['3.8','3.9','3.10']
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest]
       fail-fast: false
     steps:
       - uses: actions/checkout@v2
@@ -19,5 +19,5 @@ jobs:
       - name: Instalar dependencias
         run: poetry install
       - name: Run tests
-        run: poetry run invoke test
+        run: poetry run docker run -e ETCD_PORT=${{secrets.ETCD_PORT}} -e LOG_FILE=${{secrets.LOG_FILE}} -e LOG_LEVEL=${{secrets.LOG_LEVEL}} -e LOG_FORMAT=${{secrets.LOG_FORMAT}} -e LOG_ROTATION=${{secrets.LOG_ROTATION}} -t -v `pwd`:/app/test joaquingv12/car_workshop-maximizer
         
