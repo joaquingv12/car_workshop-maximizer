@@ -5,3 +5,4 @@ automatizar:
   orden: invoke install
 test: test/test_vehiculos.py
 CI: .circleci/config.yml
+configuracion: src/config.py
