@@ -180,7 +180,13 @@ logger.add("file_1.log", rotation="100 MB")
 
 Finalmente, también está la librería oficial de Python para el manejo de logs, [logging](https://docs.python.org/3/library/logging.html), pero no es tan fácil de configurar como la de loguru, cuyo propósito es facilitar la configuración con respecto a logging.
 
-Por tanto, he decido usar **loguru**, cuya configuración se encuentra en [logger.py](src/logger.py).
+Por tanto, he decido usar **loguru**, cuya configuración se encuentra en [logger.py](src/logger.py). En mi caso, para configurar el logger, he usado el siguiente código:
+
+```python
+logger.add(config_logger["file"], format=config_logger["format"], rotation=config_logger["rotation"])
+```
+
+Esta configuración vendrá dada por el sistema de configuración de la aplicación, que se explica a continuación.
 
 **NOTA**: Para que el logger creado en la aplicación registre los logs cuando se están pasando los test, es necesario indicar a pytest que no maneje él los logs, por esto, he modificado la tarea que pasa los tests con el siguiente comando:
 ```pytest -p no:logging```
@@ -206,7 +212,7 @@ En el caso de etcd simplemente habría que instalarlo e importarlo a la aplicaci
 **NOTA**: Para los sistemas de integración continua dado que el repositorio no tiene el archivo .env con las variables de entorno, hay que almacenar estas variables en los propios sistemas, CircleCI tiene una opción para esto en la configuración del proyecto y en el caso de las GitHub Action, se puede hacer uso de las variables secrets del repositorio. Además de esto, a la hora de correr el contenedor con los test, hay que indicar que utilice estas variables de entorno de la siguiente forma:
 
 ``` bash
-docker run -e ETCD_PORT=${ETCD_PORT} -e LOG_FILE=${LOG_FILE} -e LOG_LEVEL=${LOG_LEVEL} -t -v `pwd`:/app/test joaquingv12/car_workshop-maximizer
+docker run -e ETCD_PORT=$ETCD_PORT -e LOG_FILE=$LOG_FILE -e LOG_LEVEL=$LOG_LEVEL -e LOG_FORMAT=$LOG_FORMAT -e LOG_ROTATION=$LOG_ROTATION -t -v `pwd`:/app/test joaquingv12/car_workshop-maximizer
 ```
 
 ***
