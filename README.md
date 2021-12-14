@@ -189,7 +189,10 @@ logger.add(config_logger["file"], format=config_logger["format"], rotation=confi
 Esta configuración vendrá dada por el sistema de configuración de la aplicación, que se explica a continuación.
 
 **NOTA**: Para que el logger creado en la aplicación registre los logs cuando se están pasando los test, es necesario indicar a pytest que no maneje él los logs, por esto, he modificado la tarea que pasa los tests con el siguiente comando:
-```pytest -p no:logging```
+
+```
+pytest -p no:logging
+```
 
 ## Sistema de configuración
 
